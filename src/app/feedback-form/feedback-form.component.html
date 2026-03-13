@@ -2,15 +2,15 @@
   <header>
     <h1>&#x1F32E; The 30-Second Healthy Food Test</h1>
   </header>
-  <form>
+  <form (submit)="submitFeedback($event)">
     <fieldset>
-      <legend>1. How delicious was the tortilla + filling?</legend>
+      <legend>1. How delicious was the Quesedilla + filling?</legend>
       <div class="rating">
-        <label><input type="radio" name="taste" value="1"> 😐 Not exciting</label>
-        <label><input type="radio" name="taste" value="2"> 🙂 Good</label>
-        <label><input type="radio" name="taste" value="3"> 😋 Really tasty</label>
-        <label><input type="radio" name="taste" value="4"> 🤤 Absolutely delicious</label>
-        <label><input type="radio" name="taste" value="5"> 🔥 I want another one!</label>
+        <label><input type="radio" name="taste" value="1" [checked]="taste() === 1" (change)="setTaste('1')"> 😐 Not exciting</label>
+        <label><input type="radio" name="taste" value="2" [checked]="taste() === 2" (change)="setTaste('2')"> 🙂 Good</label>
+        <label><input type="radio" name="taste" value="3" [checked]="taste() === 3" (change)="setTaste('3')"> 😋 Really tasty</label>
+        <label><input type="radio" name="taste" value="4" [checked]="taste() === 4" (change)="setTaste('4')"> 🤤 Absolutely delicious</label>
+        <label><input type="radio" name="taste" value="5" [checked]="taste() === 5" (change)="setTaste('5')"> 🔥 I want another one!</label>
       </div>
     </fieldset>
 
@@ -18,11 +18,11 @@
       <legend>2. Health Perception</legend>
       <p>Does this feel like a healthy yet satisfying meal?</p>
       <div class="rating">
-        <label><input type="radio" name="health" value="1"> 🥴 Doesn’t feel healthy</label>
-        <label><input type="radio" name="health" value="2"> 🙂 Somewhat healthy</label>
-        <label><input type="radio" name="health" value="3"> 💪 Balanced & nutritious</label>
-        <label><input type="radio" name="health" value="4"> 🥗 Super healthy</label>
-        <label><input type="radio" name="health" value="5"> 🌱 My kind of healthy food!</label>
+        <label><input type="radio" name="health" value="1" [checked]="health() === 1" (change)="setHealth('1')"> 🥴 Doesn’t feel healthy</label>
+        <label><input type="radio" name="health" value="2" [checked]="health() === 2" (change)="setHealth('2')"> 🙂 Somewhat healthy</label>
+        <label><input type="radio" name="health" value="3" [checked]="health() === 3" (change)="setHealth('3')"> 💪 Balanced & nutritious</label>
+        <label><input type="radio" name="health" value="4" [checked]="health() === 4" (change)="setHealth('4')"> 🥗 Super healthy</label>
+        <label><input type="radio" name="health" value="5" [checked]="health() === 5" (change)="setHealth('5')"> 🌱 My kind of healthy food!</label>
       </div>
     </fieldset>
 
@@ -30,24 +30,23 @@
       <legend>3. Visual Appeal</legend>
       <p>How attractive did the food look?</p>
       <div class="rating">
-        <label><input type="radio" name="visual" value="1"> 😕 Not appealing</label>
-        <label><input type="radio" name="visual" value="2"> 🙂 Looks okay</label>
-        <label><input type="radio" name="visual" value="3"> 📸 Instagram worthy</label>
-        <label><input type="radio" name="visual" value="4"> ✨ Beautiful plating</label>
-        <label><input type="radio" name="visual" value="5"> 🌟 Wow, stunning!</label>
+        <label><input type="radio" name="visual" value="1" [checked]="visual() === 1" (change)="setVisual('1')"> 😕 Not appealing</label>
+        <label><input aget-help type="radio" name="visual" value="2" [checked]="visual() === 2" (change)="setVisual('2')"> 🙂 Looks okay</label>
+        <label><input type="radio" name="visual" value="3" [checked]="visual() === 3" (change)="setVisual('3')"> 📸 Instagram worthy</label>
+        <label><input type="radio" name="visual" value="4" [checked]="visual() === 4" (change)="setVisual('4')"> ✨ Beautiful plating</label>
+        <label><input type="radio" name="visual" value="5" [checked]="visual() === 5" (change)="setVisual('5')"> 🌟 Wow, stunning!</label>
       </div>
     </fieldset>
 
     <fieldset>
       <legend>4. Fusion & Uniqueness</legend>
-      <p>(Corn tortilla + chipotle + beans + hung curd + Indian touch)</p>
       <p>How interesting or new did this feel?</p>
       <div class="rating">
-        <label><input type="radio" name="fusion" value="1"> 😐 Very common</label>
-        <label><input type="radio" name="fusion" value="2"> 🙂 Slightly different</label>
-        <label><input type="radio" name="fusion" value="3"> 🌎 Nice fusion</label>
-        <label><input type="radio" name="fusion" value="4"> 🚀 Creative idea</label>
-        <label><input type="radio" name="fusion" value="5"> 🎉 Totally unique!</label>
+        <label><input type="radio" name="fusion" value="1" [checked]="fusion() === 1" (change)="setFusion('1')"> 😐 Very common</label>
+        <label><input type="radio" name="fusion" value="2" [checked]="fusion() === 2" (change)="setFusion('2')"> 🙂 Slightly different</label>
+        <label><input type="radio" name="fusion" value="3" [checked]="fusion() === 3" (change)="setFusion('3')"> 🌎 Nice fusion</label>
+        <label><input type="radio" name="fusion" value="4" [checked]="fusion() === 4" (change)="setFusion('4')"> 🚀 Creative idea</label>
+        <label><input type="radio" name="fusion" value="5" [checked]="fusion() === 5" (change)="setFusion('5')"> 🎉 Totally unique!</label>
       </div>
     </fieldset>
 
@@ -55,30 +54,26 @@
       <legend>5. Quality & Freshness</legend>
       <p>How fresh and high-quality did the ingredients feel?</p>
       <div class="rating">
-        <label><input type="radio" name="quality" value="1"> 😕 Average</label>
-        <label><input type="radio" name="quality" value="2"> 🙂 Good</label>
-        <label><input type="radio" name="quality" value="3"> 👌 Fresh</label>
-        <label><input type="radio" name="quality" value="4"> ⭐ Premium quality</label>
-        <label><input type="radio" name="quality" value="5"> 💎 Restaurant grade</label>
+        <label><input type="radio" name="quality" value="1" [checked]="quality() === 1" (change)="setQuality('1')"> 😕 Average</label>
+        <label><input type="radio" name="quality" value="2" [checked]="quality() === 2" (change)="setQuality('2')"> 🙂 Good</label>
+        <label><input type="radio" name="quality" value="3" [checked]="quality() === 3" (change)="setQuality('3')"> 👌 Fresh</label>
+        <label><input type="radio" name="quality" value="4" [checked]="quality() === 4" (change)="setQuality('4')"> ⭐ Premium quality</label>
+        <label><input type="radio" name="quality" value="5" [checked]="quality() === 5" (change)="setQuality('5')"> 💎 Restaurant grade</label>
       </div>
     </fieldset>
 
     <fieldset>
       <legend>6. Value for Money</legend>
-      <p>If this was available as a meal/snack, what would you pay?</p>
-      <div class="value-options">
-        <label><input type="checkbox" name="value" value="80-100"> ₹80 – ₹100</label>
-        <label><input type="checkbox" name="value" value="100-150"> ₹100 – ₹150</label>
-        <label><input type="checkbox" name="value" value="150-200"> ₹150 – ₹200</label>
-        <label><input type="checkbox" name="value" value="200-250"> ₹200 – ₹250</label>
-        <label><input type="checkbox" name="value" value="250+"> ₹250+</label>
+      <p>If this was available as a meal, what would you pay?</p>
+      <div class="cost">
+        <input type="text" placeholder="eg ₹300 (Enter in numbers only)" [value]="cost()" (input)="setCost($event)">
       </div>
     </fieldset>
 
     <fieldset>
       <legend>7. One Word Reaction (Optional but powerful)</legend>
       <p>In one word, describe this food</p>
-      <input type="text" placeholder="e.g., Tasty, Fresh, Innovative">
+      <input type="text" placeholder="e.g., Tasty, Fresh, Innovative" [value]="oneWord()" (input)="setOneWord($event)">
     </fieldset>
 
     <button type="submit">Submit Feedback</button>
