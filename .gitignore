@@ -1,2 +1,17 @@
 /node_modules/*
 package-lock.json
+./Frontend/node_modules/*
+./Frontend.package-lock.json
+./Backend/node_modules/*
+./Backend/package-lock.json
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+````
+# Logs
+logs
+*.logs
+npm-debug.log*
